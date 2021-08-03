@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let num1 = Number(prompt('请输入第一个数'));
+        let num2 = Number(prompt('请输入第2个数'));
+        let num3 = Number(prompt('请输入第3个数'));
+
+        if(num1<num2 && num1<num3){
+            if(num2<num3){
+                alert(num1+','+num2+','+num3)   //在js中，打印int的变量，不能直接用逗号隔开alert(num1,num2)
+            }
+            else {
+                alert(num1+','+num3+','+num2)
+            }
+        }
+        else if (num2<num1 && num2<num3){
+            if(num1<num3){
+                alert(num2+','+num1+','+','+num3)
+            }
+            else{
+                alert(num2+','+num3+','+num1)
+            }
+        }
+        else if (num3<num1 && num3<num2){
+            if(num1<num2){
+                alert(num3+','+num1+','+num2)
+            }
+            else {
+                alert(num3+','+num2+','+num1)
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /*
+        年利率为5%，求从1000涨到5000需要多少年
+         */
+        let year = 0;
+        let money = 1000;
+        while (true){
+            money = money*1.05;
+            year++;
+            if (money >= 5000){
+                alert(year+'年');
+                alert(money);
+                break
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
