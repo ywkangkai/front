@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        var name = 'qqq';
+        function fun() {
+            document.write(this.name+'<br \>')
+        }
+
+        var obj1 = {
+            name: 'xxx',
+            sayName: fun //如果这里写为fun(),obj.sayName其实就是在调函数了，此时的this就是window
+        };
+
+        var obj2 = {
+            name: 'yyy',
+            sayName: fun
+        };
+        fun();  //函数调，this就是window
+        obj1.sayName(); //对象调this就是自己本身
+        obj2.sayName()
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
