@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr = ['a','b','c','d','e'];
+        var newarr = arr.slice(0,4); //还有一个splice的方法也是切片功能，但是会将原数组的值删除而slice不会影响原数组
+
+
+        var arr2 = ['a','b','c','d','e'];
+        var newarr2 = arr2.splice(0,2,'kk','yy');  //返回截取的数组
+        alert(arr2) //['kk','yy','c','d','e']
+
+        //splice用法(int,int,*arg)  第一个参数表示从低几个元素开始删除，后一个参数表示删除几个，*arg可以将传进来的参数填充到已删除的位置
+    </script>
+</head>
+<body>
+
+</body>
+</html>
