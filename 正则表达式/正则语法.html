@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+        \w 表示匹配任意字母数字下划线
+        \W 表示除了字母，数字，下划线
+        \d 任意的数字
+        \D 除了数字
+        \s 空格
+        \S 除了空格
+        \b 单词边界
+
+        | 竖线表示或
+         */
+
+
+        var re = new RegExp();
+
+        // re = /\w/; // 表示匹配任意字母数字下划线
+        // alert(re.test('123'));
+
+        // re = /\bchild\b/; //  检查child这个单词
+        // alert(re.test('hello child'));
+
+        // re = /ba{3}/; //表示匹配3连续出现3次 {n}只对他之前一个字符起作用0
+        // alert(re.test('aaac'));
+        //
+        // re = /(ab){3}/; //分组
+        // alert(re.test('ababab'));
+        //
+        // re = /a{3,4}c/;//表示a出现3到4次，如果后面4不写，表示a出现3次以上 {m,n}
+        // alert(re.test('aaac'));
+
+        // re = /a+b/; //+ 表示至少出现一次
+        // alert(re.test('aaab'));
+
+        // re = /a*b/; //* 表示出现0次或者N次
+        // alert(re.test('b'));
+
+        // re = /a?b/; //？ 表示出现0次或者1次
+        // alert(re.test('b'));
+
+        // re = /^ab/; // 表示以a开头
+        // alert(re.test('ab'));
+
+        // re = /ab$/; // 表示以b结尾
+        // alert(re.test('ab'));
+
+        // re = /\./; // 特殊字符需要转义
+        // alert(re.test('a.b'));
+
+        var str = '               hell  o'; //只替换掉开头的空格
+        var str1 = str.replace(/^\s+/, '');
+        alert(str1)
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

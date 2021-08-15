@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //match 可以根据正则表达式，从一个字符串中将符合条件的内容提取出来
+        str = 'hello,abc,aec';
+        var a = str.match(/[A-z]/g); //mathc找到一个就会停止继续查找，使用g进行贪婪
+
+        alert(a)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
