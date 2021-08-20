@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Untitled Document</title>
+		<link rel="stylesheet" type="text/css" href="css.css" />
+
+	</head>
+	<body>
+		<div id="total">
+			<div class="inner">
+				<p>
+					你喜欢哪个城市?
+				</p>
+
+				<ul id="city">
+					<li id="bj">北京</li>
+					<li>上海</li>
+					<li>东京</li>
+					<li>首尔</li>
+				</ul>
+
+				<br>
+				<br>
+
+				<p>
+					你喜欢哪款单机游戏?
+				</p>
+
+				<ul id="game">
+					<li id="rl">红警</li>
+					<li>实况</li>
+					<li>极品飞车</li>
+					<li>魔兽</li>
+				</ul>
+
+				<br />
+				<br />
+
+				<p>
+					你手机的操作系统是?
+				</p>
+
+				<ul id="phone"><li>IOS</li><li id="android">Android</li><li>Windows Phone</li></ul>
+			</div>
+
+			<div class="inner">
+				gender:
+				<input type="radio" name="gender" value="male"/>
+				Male
+				<input type="radio" name="gender" value="female"/>
+				Female
+				<br>
+				<br>
+				name:
+				<input type="text" name="name" id="username" value="abcde"/>
+			</div>
+		</div>
+		<div id="btnList">
+			<div><button id="btn01">查找#bj节点</button></div>
+			<div><button id="btn02">查找所有li节点</button></div>
+			<div><button id="btn03">查找name=gender的所有节点</button></div>
+			<div><button id="btn04">查找#city下所有li节点</button></div>
+			<div><button id="btn05">返回#city的所有子节点</button></div>
+			<div><button id="btn06">返回#phone的第一个子节点</button></div>
+			<div><button id="btn07">返回#bj的父节点</button></div>
+			<div><button id="btn08">返回#android的前一个兄弟节点</button></div>
+			<div><button id="btn09">返回#username的value属性值</button></div>
+			<div><button id="btn10">设置#username的value属性值</button></div>
+			<div><button id="btn11">返回#bj的文本值</button></div>
+		</div>
+
+		<script type="text/javascript">
+
+			/*
+			innerHTML用于获取内部的HTML文本
+			读取元素节点属性，直接使用 元素.属性名
+				例如 元素.id  元素.name 元素.type 元素.value
+					 注意class不能采用这种方式，在读取class时需要 元素.classname
+			 */
+
+
+			//idstr为点击元素的id fun是将函数作为参数传入进行回调
+			function myclick(idstr,fun) {
+				var btn = document.getElementById(idstr);
+				btn.onclick = fun
+			}
+
+
+			//查找#bj节点
+
+			var btn01 = document.getElementById('btn01');
+			btn01.onclick = function () {
+				var bj = document.getElementById('bj');
+				alert(bj.innerHTML) //innerHTML可以获取文本
+ 			};
+			//查找所有li节点
+
+			var btn02 = document.getElementById('btn02'); //
+			btn02.onclick = function () {
+				var lis = document.getElementsByTagName('li');
+				for (var i=0; i<lis.length; i++){
+					alert(lis[i].innerHTML)
+				}
+			};
+
+			//查找name=gender的所有节点
+			var btn03 = document.getElementById('btn03');
+			btn03.onclick = function () {
+				var names = document.getElementsByName('gender');
+				for (var i=0; i<names.length; i++){
+					alert(names[i].value);
+					//alert(names[i].type);
+					//alert(names[i].classname)
+					//alert(names[i].name)
+				}
+			};
+
+			//查找#city下所有li节点
+			var btn04 = document.getElementById('btn04');
+			btn04.onclick = function () {
+				var city = document.getElementById('city');
+				var cities = city.getElementsByTagName('li');
+				for (var i=0; i<cities.length; i++){
+					alert(cities[i].innerHTML)
+				}
+			};
+
+			//返回#city的所有子节点
+			var btn05 = document.getElementById('btn05');
+			btn05.onclick = function () {
+				var city = document.getElementById('city');
+				//var lis = city.childNodes;  //childNodes会获取包括文本节点在内的所有节点，根据DOM标签间的空白也会当成文本节点
+				var lis = city.children; //只获取元素
+				for (var i=0; i<lis.length; i++){
+					alert(lis[i].innerHTML)
+				}
+			};
+
+			//返回#phone的第一个子节点
+			var btn06 = document.getElementById('btn06');
+			btn06.onclick = function () {
+				var phone = document.getElementById('phone');
+				//var fir = phone.firstChild; //可以获取到当前元素的第一个子节点包括空白
+				var fir = phone.firstElementChild;//只获取元素
+				//var fir = phone.lastElementChild;
+				alert(fir.innerHTML)
+
+			};
+			//返回#bj的父节点
+			myclick('btn07',function () {
+				var bj = document.getElementById('bj');
+				var pn = bj.parentNode;
+				alert(pn.innerHTML);
+				/*
+				innerText可以获取元素内部的文本内容，会将标签去掉
+				 */
+			});
+
+
+			//返回#android的前一个兄弟节点
+			myclick('btn08', function () {
+				var and = document.getElementById('android');
+				var pre = and.previousElementSibling;// 获取前一个兄弟元素
+				//var pre = and.nextElementSibling; //获取后一个兄弟元素
+				alert(pre.innerHTML)
+			});
+
+			//读取#username的value属性值
+			myclick('btn09',function () {
+				var um = document.getElementById('username');
+				alert(um.value) // 文本框的value属性值，就是稳文本框中填写的内容
+			});
+
+			//设置#username的value属性值
+			myclick('btn10',function () {
+				var um = document.getElementById('username');
+				um.value = 'xxxx';
+				alert(um.value)
+			});
+
+			//返回#bj的文本值
+			myclick('btn11',function () {
+				var bj = document.getElementById('bj');
+				alert(bj.innerHTML)
+
+			})
+
+		</script>
+	</body>
+</html>
