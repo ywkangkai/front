@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			window.onload = function(){
+
+				//获取页面中的所有的div
+				//var divs = document.getElementsByTagName("div");
+				
+				//获取class为box1中的所有的div
+				//.box1 div
+				/*
+				 * document.querySelector()
+				 * 	- 需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象
+				 * 	- 虽然IE8中没有getElementsByClassName()但是可以使用querySelector()代替
+				 * 	- 使用该方法总会返回唯一的一个元素，如果满足条件的元素有多个，那么它只会返回第一个
+				 */
+				var div = document.querySelector(".box1 div"); //找到box1下的第一个div
+				
+				var box1 = document.querySelector(".box1");
+				
+				alert(div.innerHTML);
+				//alert(box1.innerText);
+				
+				/*
+				 * document.querySelectorAll()
+				 * 	- 该方法和querySelector()用法类似，不同的是它会将符合条件的元素封装到一个数组中返回
+				 * 	- 即使符合条件的元素只有一个，它也会返回数组
+				 */
+				box1 = document.querySelectorAll(".box1");
+				box1 = document.querySelectorAll("#box2");
+				//console.log(box1);
+				
+			};
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="box2"></div>	
+		<div class="box1">
+			我是第一个box1	 
+			<div>我是box1中的div</div>
+		</div>
+		<div class="box1">
+			<div>我是box1中的div</div>
+		</div>
+		<div class="box1">
+			<div>我是box1中的div</div>
+		</div>
+		<div class="box1">
+			<div>我是box1中的div</div>
+		</div>
+		
+		<div></div>
+	</body>
+</html>
