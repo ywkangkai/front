@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<ul id="u1" style="background-color: yellowgreen">
+    <li><a href="javascript:;" class="link">链接一</a></li>
+    <li><a href="javascript:;" class="link">链接二</a></li>
+    <li><a href="javascript:;" class="link">链接三</a></li>
+</ul>
+<button id="btn01">添加</button>
+
+
+
+
+
+<script>
+    var btn01 = document.getElementById('btn01')
+    var u1 = document.getElementById('u1')
+    btn01.onclick = function () {
+        var li = document.createElement('li')
+        li.innerHTML = '<a href="javascript:;" class="link">新增链接</a>'
+        u1.append(li)
+    }
+    // var allA = document.getElementsByTagName('a')
+    // for (var i=0; i<allA.length; i++){
+    //     allA[i].onclick = function () {
+    //          alert('xxxx')
+    //     }
+    // }
+
+
+    //上面写法太消耗性能，直接找到祖先元素进行绑定,通过target进行找到对应的标签生效点击响应
+    u1.onclick = function (event) {
+        //alert(event.target)
+        //event.target表示触发事件的对象
+        //event = event || window.event
+        if (event.target.className == "link"){
+            alert('我是u1绑定响应函数')
+        }
+
+    }
+</script>
+</body>
+</html>

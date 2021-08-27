@@ -80,9 +80,9 @@
 			 */
 
 
-			//idstr为点击元素的id fun是将函数作为参数传入进行回调
-			function myclick(idstr,fun) {
-				var btn = document.getElementById(idstr);
+			//btnid为点击元素的id fun是将函数作为参数传入进行回调
+			function myclick(btnid,fun) {
+				var btn = document.getElementById(btnid);
 				btn.onclick = fun
 			}
 
@@ -154,7 +154,7 @@
 				alert(pn.innerHTML);
 				/*
 				innerText可以获取元素内部的文本内容，会将标签去掉
-				 */
+				*/
 			});
 
 

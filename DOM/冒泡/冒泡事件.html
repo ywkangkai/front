@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+        #s1{
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+<div id="box1">
+    我是box1
+    <span id="s1">我是span</span>
+</div>
+
+<script>
+    /*
+    所谓的冒泡，指后代元素上的事件被处罚时，其祖先元素的相当相同事件也会被触发
+     */
+    var s1 = document.getElementById('s1')
+    s1.onclick = function () {
+        alert('我是span')
+    }
+
+
+    var box1 = document.getElementById('box1')
+    s1.onclick = function (){
+        alert('我是div')
+    }
+
+    document.body.onclick = function () {
+        alert('我是body')
+    }
+</script>
+</body>
+</html>

@@ -77,7 +77,6 @@
 				</td>
 			</tr>
 		</table>
-
 	</div>
 
 </body>
@@ -134,7 +133,7 @@
 		tr.appendChild(sarlaytd);
 		tr.appendChild(atd);
 
-		//向a中添加超链接属性
+		//向a中添加超链接属性,为新添加的a标签再次添加点击事件
 		a.href = 'javascript:;';
 		a.onclick = function(){
 			//点击哪一个a标签this就是谁
@@ -148,7 +147,6 @@
 			}
 			return false //如果这里不加这句，点击后会跳转到另外一个页面
 		};
-		//为新添加的a标签再次添加点击事件
 
 		//将tr添加到table
 		var table = document.getElementById('employeeTable');
