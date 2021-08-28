@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+
+
+
+<script>
+    /*
+    鼠标滚轮向下滚动时，box1边长向上滚动时box1变短,向下变长
+     */
+    var box1 = document.getElementById('box1')
+    //绑定鼠标滚轮滚动事件,但火狐不支持onmousewheel，使用DOMMouseScroll
+    box1.onmousewheel = function (event) {
+        //判断鼠标滚轮是向上滚还是向下滚
+        //alert(event.wheelDelta) //向上滚是正数，向下滚是负数
+        if (event.wheelDelta > 0){
+            box1.style.height = box1.clientHeight - 100 + "px"
+        }
+        else {
+            box1.style.height = box1.clientHeight + 100 + "px"
+        }
+    }
+</script>
+</body>
+</html>
