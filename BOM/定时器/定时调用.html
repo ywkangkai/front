@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="count">1</h1>
+
+<script>
+    var count = document.getElementById('count')
+
+    var num = 1
+    //定时调用,可以将一个函数每隔一段时间执行一次，需要传一个函数，和时间
+   var timer = setInterval(function () {
+       count.innerHTML = num++
+       if (num == 3){
+           clearInterval(timer) //判断后，只会显示到2
+       }
+   },1000)
+
+    //关闭定时器
+
+</script>
+</body>
+</html>

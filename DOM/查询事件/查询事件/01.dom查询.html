@@ -126,7 +126,7 @@
 				}
 			};
 
-			//返回#city的所有子节点
+			//返回上一页#city的所有子节点
 			var btn05 = document.getElementById('btn05');
 			btn05.onclick = function () {
 				var city = document.getElementById('city');
@@ -137,7 +137,7 @@
 				}
 			};
 
-			//返回#phone的第一个子节点
+			//返回上一页#phone的第一个子节点
 			var btn06 = document.getElementById('btn06');
 			btn06.onclick = function () {
 				var phone = document.getElementById('phone');
@@ -147,7 +147,7 @@
 				alert(fir.innerHTML)
 
 			};
-			//返回#bj的父节点
+			//返回上一页#bj的父节点
 			myclick('btn07',function () {
 				var bj = document.getElementById('bj');
 				var pn = bj.parentNode;
@@ -158,7 +158,7 @@
 			});
 
 
-			//返回#android的前一个兄弟节点
+			//返回上一页#android的前一个兄弟节点
 			myclick('btn08', function () {
 				var and = document.getElementById('android');
 				var pre = and.previousElementSibling;// 获取前一个兄弟元素
@@ -179,7 +179,7 @@
 				alert(um.value)
 			});
 
-			//返回#bj的文本值
+			//返回上一页#bj的文本值
 			myclick('btn11',function () {
 				var bj = document.getElementById('bj');
 				alert(bj.innerHTML)

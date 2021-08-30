@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <img id="img1" src="img/1.jpg">
+    <button id="btn01">开始</button>
+
+<script>
+    var img1 = document.getElementById('img1')
+    var imgARR = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"]
+    var index = 0
+
+    var btn = document.getElementById('btn01')
+    btn01.onclick = function () {
+        var timer = setInterval(function () {
+
+            img1.src = imgARR[index]
+            index = index + 1
+            if (index == imgARR.length){
+                index = 0
+            }
+        }, 500)
+    }
+
+</script>
+</body>
+
+</html>
