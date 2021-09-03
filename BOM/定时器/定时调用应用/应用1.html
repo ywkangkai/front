@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn01">点击按钮后box1向右移动</button>
+<br /><br />
+<div id="box1"></div>
+
+<script>
+
+
+
+  var box1 = document.getElementById('box1')
+  var btn01 = document.getElementById('btn01')
+  var timer
+  btn01.onclick = function () {
+      //关闭定时器
+      clearInterval(timer) //一来就关闭的原因是，按钮可以重复点击，多次点击后会改变移动速度，有这句话表示不管怎么点只有一个定时器在起作用
+      //开启定时器，执行动画效果
+          timer = setInterval(function () {
+          //获取box1初始的left值
+          var oldvalue = box1.offsetLeft
+          //在初始值上自增
+          var newvalue = oldvalue + 10
+          if (newvalue > 800){
+              newvalue = 800
+          }
+          box1.style.left = newvalue + 'px'
+          //当元素移动到800px时，使其停止执行动画
+          if (newvalue >= 800){
+              clearInterval(timer)
+          }
+      },30)
+  }
+
+</script>
+</body>
+</html>

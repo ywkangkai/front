@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            top: 200px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<button id="btn01">点击按钮以后box1向右移动</button>
+<button id="btn02">点击按钮以后box1向左移动</button>
+<button id="btn03">点击按钮以后box2向右移动</button>
+<button id="btn04">测试按钮</button>
+
+<br /><br />
+
+<div id="box1"></div>
+<div id="box2"></div>
+
+<div style="width: 0; height: 1000px; border-left:1px black solid; position: absolute; left: 800px;top:0;"></div>
+<!--<script type="application/javascript" src="fun.js"></script>-->
+<script type="text/javascript">
+    var box1 = document.getElementById('box1')
+    var btn01 = document.getElementById('btn01')
+    var btn02 = document.getElementById('btn02')
+
+    function getStyle(obj, name){
+
+        if(window.getComputedStyle){
+            //正常浏览器的方式，具有getComputedStyle()方法
+            return getComputedStyle(obj, null)[name];
+        }else{
+            //IE8的方式，没有getComputedStyle()方法
+            return obj.currentStyle[name];
+        }
+
+    }
+
+    function move(obj, attr, target, speed, callback) {
+        clearInterval(obj.timer)
+        current = parseInt(getStyle(obj, attr))
+        alert(current)
+        if (target < current){
+            speed = -speed
+        }
+
+        obj.timer = setInterval(function () {
+            var oldvalue = parseInt(getStyle(obj, attr))
+            var newvalue = oldvalue + speed
+            if ((speed < 0 && newvalue < target) || (speed > 0 && newvalue > target)){
+                newvalue=target
+            }
+            obj.style[attr] = `${newvalue}px`
+            if (newvalue === target){
+                clearInterval(obj.timer)
+            }
+            callback()
+        },speed)
+    }
+
+    btn01.onclick = function () {
+        alert(getStyle(box1, 'width'))
+    }
+</script>
+
+</body>
+</html>
