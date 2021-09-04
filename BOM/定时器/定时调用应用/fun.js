@@ -26,7 +26,7 @@ function move(obj, attr, target, speed, callback) {
     //向执行动画的对象中添加一个timer属性，用来保存它自己的定时器的标识
     obj.timer = setInterval(function() {
 
-        //获取box1的原来的left值
+        //获取box1的当前的left值
         var oldValue = parseInt(getStyle(obj, attr));
 
         //在旧值的基础上增加

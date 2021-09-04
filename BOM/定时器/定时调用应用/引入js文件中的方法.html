@@ -28,7 +28,67 @@
         }
 
     </style>
+    <script type="text/javascript" src="fun.js"></script>
+    <script type="text/javascript">
 
+        window.onload = function(){
+
+            //获取box1
+            var box1 = document.getElementById("box1");
+            //获取btn01
+            var btn01 = document.getElementById("btn01");
+
+            //获取btn02
+            var btn02 = document.getElementById("btn02");
+
+
+            //点击按钮以后，使box1向右移动（left值增大）
+            btn01.onclick = function(){
+                move(box1 ,"left", 800 , 20);
+            };
+
+
+            //点击按钮以后，使box1向左移动（left值减小）
+            btn02.onclick = function(){
+                move(box1 ,"left", 0 , 10);
+            };
+
+
+            //获取btn03
+            var btn03 = document.getElementById("btn03");
+            btn03.onclick = function(){
+                move(box2 , "left",800 , 10);
+            };
+
+            //测试按钮
+            var btn04 = document.getElementById("btn04");
+            btn04.onclick = function(){
+                //move(box2 ,"width", 800 , 10);
+                //move(box2 ,"top", 800 , 10);
+                //move(box2 ,"height", 800 , 10);
+                move(box2 , "width" , 800 , 10 , function(){
+                    move(box2 , "height" , 400 , 10 , function(){
+                        move(box2 , "top" , 0 , 10 , function(){
+                            move(box2 , "width" , 100 , 10 , function(){
+
+                            });
+                        });
+                    });
+                });
+            };
+        };
+
+        //定义一个变量，用来保存定时器的标识
+        /*
+         * 目前我们的定时器的标识由全局变量timer保存，
+         * 	所有的执行正在执行的定时器都在这个变量中保存
+         */
+        //var timer;
+
+
+
+
+    </script>
 </head>
 <body>
 
@@ -43,50 +103,6 @@
 <div id="box2"></div>
 
 <div style="width: 0; height: 1000px; border-left:1px black solid; position: absolute; left: 800px;top:0;"></div>
-<!--<script type="application/javascript" src="fun.js"></script>-->
-<script type="text/javascript">
-    var box1 = document.getElementById('box1')
-    var btn01 = document.getElementById('btn01')
-    var btn02 = document.getElementById('btn02')
-
-    function getStyle(obj, name){
-
-        if(window.getComputedStyle){
-            //正常浏览器的方式，具有getComputedStyle()方法
-            return getComputedStyle(obj, null)[name];
-        }else{
-            //IE8的方式，没有getComputedStyle()方法
-            return obj.currentStyle[name];
-        }
-
-    }
-
-    function move(obj, attr, target, speed, callback) {
-        clearInterval(obj.timer)
-        current = parseInt(getStyle(obj, attr))
-        alert(current)
-        if (target < current){
-            speed = -speed
-        }
-
-        obj.timer = setInterval(function () {
-            var oldvalue = parseInt(getStyle(obj, attr))
-            var newvalue = oldvalue + speed
-            if ((speed < 0 && newvalue < target) || (speed > 0 && newvalue > target)){
-                newvalue=target
-            }
-            obj.style[attr] = `${newvalue}px`
-            if (newvalue === target){
-                clearInterval(obj.timer)
-            }
-            callback()
-        },speed)
-    }
-
-    btn01.onclick = function () {
-        alert(getStyle(box1, 'width'))
-    }
-</script>
 
 </body>
 </html>
